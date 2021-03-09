@@ -1,0 +1,157 @@
+/* Import Normalize and stop me from tearing my hair out */
+@import url('./normalize.css');
+
+/*  */
+:root {
+  --copper-main: #CC8F60;
+  --text-main: #222;
+  --gray-main: #ededed;
+  --gray-bg: #888;
+}
+
+/* Apply a universal font to all elements */
+* { font-family: 'courier new', monospace; }
+
+/* Universal body styles: flex display with stacked columns */
+body {
+  background: url('./background.png') top left repeat;
+  font-size: clamp(1.0rem, 1.25rem, 1.5rem);
+  color: var(--text-main);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  margin: 0;
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  margin: 0;
+  flex-shrink: 2;
+  background: var(--gray-main);
+  border-bottom: 2vh solid var(--copper-main); /* Shiny */
+  align-items: center;
+}
+
+/* Header's Child Unordered List Styles */
+header > ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: space-evenly;
+  width: 70%;
+  list-style-type: none;
+}
+
+/* DIV containing profile photo and bio */
+div#group {
+  display: flex;
+  width: 90%;
+  margin: 4vh 5%;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/* Change the orientation of the content if the screen is in portrait */
+@media only screen
+and (orientation: portrait) {
+  div#group {
+    flex-flow: column nowrap;
+  }
+}
+
+/* Getting fancy with borders and padding */
+img#profile {
+  border-radius: 50%;
+  width: 25vw;
+  height: 100%;
+  border: 2px solid var(--gray-bg);
+  background: var(--gray-main);
+  padding: 10px;
+}
+
+/* Workaround to color only the circle icon used with FontAwesome */
+/* Triggers are the pseudo elements of the PARENT element */
+/* Select only the first child of the child span, use universal to
+ */
+a.icons > span > *:first-child {
+  color: var(--gray-bg);
+}
+
+/* The only occurrence of this color so decided not to put it in a var */
+a.icons:hover > span > *:first-child,
+a.icons:active > span > *:first-child {
+  color: #333;
+}
+
+/* Intro Section Styles */
+section#intro {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+/* Intro Section Paragraphs */
+/* Increase legibility by auto-using hyphens */
+section#intro > p {
+  hyphens: auto;
+  font-size: 90%;
+  text-indent: 8vw;
+  text-align: justify;
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* Main and Footer shared styles */
+main, footer {
+  background: var(--gray-bg);
+  width: 98%;
+  padding: 0 1%;
+  flex-grow: 2;
+  color: var(--gray-main);
+}
+
+/* Better way to create a grid than display:grid */
+main {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+/* Oh, how I hate inherited padding-inline-start */
+main > ul {
+  list-style-type: none;
+  padding-inline-start: 10px;
+}
+
+/* landscape-only main style to increase font size */
+@media only screen and (orientation: landscape) {
+  main {
+    font-size: 150%;
+  }
+}
+
+/* Nothing special with aside, just adjust the width to fit the side margins */
+aside {
+  width: 95%;
+  margin: 0 2.5vw;
+}
+
+/* Nothing special with footer either */
+footer { text-align: center; }
+
+/* Final accommodations for landscape */
+@media only screen
+and (orientation: landscape) {
+  section#intro > p {
+    text-indent: 0;
+    margin-bottom: 3vh;
+  }
+  h1 {
+    font-size: 5rem;
+  }
+}
