@@ -6,7 +6,7 @@
   --copper-main: #CC8F60;
   --text-main: #222;
   --gray-main: #ededed;
-  --gray-bg: #888;
+  --gray-bg: #262626;
 }
 
 /* Apply a universal font to all elements */
@@ -101,7 +101,6 @@ section#intro > p {
   hyphens: auto;
   font-size: 90%;
   text-indent: 8vw;
-  text-align: justify;
   width: 85%;
   margin: 0 auto;
 }
